@@ -17,20 +17,17 @@ public:
     ~MainWindow();
 
     void DrawScene();
-    void DrawPoints();
 
     void ClearPoints();
 
 public slots:
     void actionExit_triggered();
-    void released();
+    //void released();
 
 private:
     Ui::MainWindowForm *mMainWindowUI;
     QGraphicsScene *mScene;
     QGraphicsView *mView;
-    QPushButton *mButton;
-    int sillyCounter{0};
 };
 
 #endif // MAINWINDOW_H

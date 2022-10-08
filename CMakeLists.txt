@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(QtGUI LANGUAGES CXX VERSION 0.1.0)
+project(AntSimulator LANGUAGES CXX VERSION 0.1.0)
 configure_file(${PROJECT_NAME}Config.h.in ${PROJECT_NAME}Config.h)
 
 FIND_PACKAGE(Qt6 REQUIRED COMPONENTS GUI Widgets )
@@ -17,6 +17,9 @@ PRIVATE
     mainwindow.cpp
     mainwindow.h
     mainwindowform.ui
+    resources.qrc
+    ant.h ant.cpp
+    colony.h colony.cpp
 ) 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 target_include_directories(${PROJECT_NAME} PRIVATE)

@@ -43,27 +43,9 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Input Number of Points</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="countInput">
-           <property name="maximum">
-            <number>9999</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
         <widget class="QLabel" name="outputBox">
          <property name="text">
-          <string>Please input desired number of points above.</string>
+          <string>Lorem Ipsum</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
