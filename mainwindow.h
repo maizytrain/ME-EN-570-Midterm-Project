@@ -28,6 +28,7 @@ private:
     Ui::MainWindowForm *mMainWindowUI;
     QGraphicsScene *mScene;
     QGraphicsView *mView;
+
 };
 
 #endif // MAINWINDOW_H
