@@ -40,7 +40,6 @@ target_link_libraries(AntSimulator_unittests
         ${GTEST_MAIN_LIBRARIES}
         Qt6::Widgets
         Qt6::Gui
-        AntSimulator
 )
 
 install(TARGETS ${PROJECT_NAME}
