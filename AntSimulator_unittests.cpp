@@ -8,7 +8,12 @@ protected:
     ant bob;
 };
 
-TEST_F(antTester, GivenAnAntClass_WhenCallingANewAnt_ExpectNoErrorsThrown)
+TEST(antTester, GivenAnAntClass_WhenCallingANewAnt_ExpectNoErrorsThrown)
 {
     ASSERT_NO_THROW(ant jerald);
+}*/
+
+/*TEST(testTest, testingTests)
+{
+    EXPECT_NO_THROW();
 }*/
