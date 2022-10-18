@@ -2,5 +2,5 @@
 
 ant::ant()
 {
-
+    //mPixItem = new QGraphicsPixmapItem()
 }

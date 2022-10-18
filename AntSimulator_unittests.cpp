@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 //#include "colony.h"
-#include "ant.h"
+//#include "ant.h"
 
 /*class antTester: public ant, public ::testing::Test
 {
@@ -17,3 +17,9 @@ TEST(antTester, GivenAnAntClass_WhenCallingANewAnt_ExpectNoErrorsThrown)
 {
     EXPECT_NO_THROW();
 }*/
+
+
+TEST(a,b)
+{
+    EXPECT_FALSE(true);
+}

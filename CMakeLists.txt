@@ -12,44 +12,41 @@ SET(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTOUIC ON)
 SET(CMAKE_AUTORCC ON)
 
-add_library(AntSimulatorPieces SHARED)
-target_sources(AntSimulatorPieces
-PRIVATE
-    ant.h ant.cpp
-    colony.h colony.cpp
+#add_library(AntSimulatorPieces SHARED)
+#target_sources(AntSimulatorPieces
+#PRIVATE
 
-)
-target_compile_features(AntSimulatorPieces PUBLIC cxx_std_17)
-target_link_libraries(AntSimulatorPieces PRIVATE
-    Qt6::Widgets
-    Qt6::Gui
-)
+#)
+#target_compile_features(AntSimulatorPieces PUBLIC cxx_std_17)
+#target_link_libraries(AntSimulatorPieces PRIVATE
 
-install(TARGETS AntSimulatorPieces
-    EXPORT AntSimulatorPieces
-    FILE_SET HEADERS
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    RUNTIME DESTINATION bin
-    INCLUDES DESTINATION include)
+#)
 
-install(EXPORT AntSimulatorPieces
-    FILE AntSimulatorPieces.cmake
-    NAMESPACE AntSimulatorPieces::
-    DESTINATION lib/cmake/AntSimulatorPieces)
+#install(TARGETS AntSimulatorPieces
+#    EXPORT AntSimulatorPieces
+#    FILE_SET HEADERS
+#    LIBRARY DESTINATION lib
+#    ARCHIVE DESTINATION lib
+#    RUNTIME DESTINATION bin
+#    INCLUDES DESTINATION include)
 
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    "AntSimulatorPiecesConfigVersion.cmake"
-    VERSION ${AntSimulatorPieces_VERSION}
-    COMPATIBILITY AnyNewerVersion)
+#install(EXPORT AntSimulatorPieces
+#    FILE AntSimulatorPieces.cmake
+#    NAMESPACE AntSimulatorPieces::
+#    DESTINATION lib/cmake/AntSimulatorPieces)
 
-install(
-    FILES
-        "AntSimulatorPiecesConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/AntSimulatorPiecesConfigVersion.cmake"
-    DESTINATION lib/cmake/${PROJECT_NAME}
-)
+#include(CMakePackageConfigHelpers)
+#write_basic_package_version_file(
+#    "AntSimulatorPiecesConfigVersion.cmake"
+#    VERSION ${AntSimulatorPieces_VERSION}
+#    COMPATIBILITY AnyNewerVersion)
+
+#install(
+#    FILES
+#        "AntSimulatorPiecesConfig.cmake"
+#    "${CMAKE_CURRENT_BINARY_DIR}/AntSimulatorPiecesConfigVersion.cmake"
+#    DESTINATION lib/cmake/${PROJECT_NAME}
+#)
 
 
 
@@ -62,6 +59,8 @@ PRIVATE
     mainwindow.h
     mainwindowform.ui
     resources.qrc
+    ant.h ant.cpp
+    colony.h colony.cpp
 ) 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 target_include_directories(${PROJECT_NAME} PRIVATE)
@@ -69,7 +68,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE)
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
     Qt6::Gui
-    AntSimulatorPieces
+    #AntSimulatorPieces
 )
 
 find_package(GTest REQUIRED)
@@ -83,9 +82,7 @@ target_link_libraries(AntSimulator_unittests
     PRIVATE
         ${GTEST_LIBRARIES}
         ${GTEST_MAIN_LIBRARIES}
-        Qt6::Widgets
-        Qt6::Gui
-        AntSimulatorPieces
+        #AntSimulatorPieces
 )
 
 install(TARGETS ${PROJECT_NAME}
