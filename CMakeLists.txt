@@ -3,6 +3,7 @@ project(AntSimulator LANGUAGES CXX VERSION 0.1.0)
 configure_file(${PROJECT_NAME}Config.h.in ${PROJECT_NAME}Config.h)
 
 FIND_PACKAGE(Qt6 REQUIRED COMPONENTS GUI Widgets )
+#FIND_PACKAGE(vector3D REQUIRED)
 
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
@@ -12,41 +13,45 @@ SET(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTOUIC ON)
 SET(CMAKE_AUTORCC ON)
 
-#add_library(AntSimulatorPieces SHARED)
-#target_sources(AntSimulatorPieces
-#PRIVATE
+add_library(AntSimulatorPieces STATIC)
+target_sources(AntSimulatorPieces
+    PRIVATE
+    antlogic.cpp
+    PUBLIC FILE_SET HEADERS
+    BASE_DIRS ${PROJECT_SOURCE_DIR}
+    FILES
+    antlogic.h
+)
+target_compile_features(AntSimulatorPieces PUBLIC cxx_std_17)
+target_link_libraries(AntSimulatorPieces PRIVATE
+    #vector3d::vector3d
+)
 
-#)
-#target_compile_features(AntSimulatorPieces PUBLIC cxx_std_17)
-#target_link_libraries(AntSimulatorPieces PRIVATE
+install(TARGETS AntSimulatorPieces
+    EXPORT AntSimulatorPieces
+    FILE_SET HEADERS
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include)
 
-#)
+install(EXPORT AntSimulatorPieces
+    FILE AntSimulatorPieces.cmake
+    NAMESPACE AntSimulatorPieces::
+    DESTINATION lib/cmake/AntSimulatorPieces)
 
-#install(TARGETS AntSimulatorPieces
-#    EXPORT AntSimulatorPieces
-#    FILE_SET HEADERS
-#    LIBRARY DESTINATION lib
-#    ARCHIVE DESTINATION lib
-#    RUNTIME DESTINATION bin
-#    INCLUDES DESTINATION include)
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    "AntSimulatorPiecesConfigVersion.cmake"
+    VERSION ${AntSimulatorPieces_VERSION}
+    COMPATIBILITY AnyNewerVersion)
 
-#install(EXPORT AntSimulatorPieces
-#    FILE AntSimulatorPieces.cmake
-#    NAMESPACE AntSimulatorPieces::
-#    DESTINATION lib/cmake/AntSimulatorPieces)
-
-#include(CMakePackageConfigHelpers)
-#write_basic_package_version_file(
-#    "AntSimulatorPiecesConfigVersion.cmake"
-#    VERSION ${AntSimulatorPieces_VERSION}
-#    COMPATIBILITY AnyNewerVersion)
-
-#install(
-#    FILES
-#        "AntSimulatorPiecesConfig.cmake"
-#    "${CMAKE_CURRENT_BINARY_DIR}/AntSimulatorPiecesConfigVersion.cmake"
-#    DESTINATION lib/cmake/${PROJECT_NAME}
-#)
+install(
+    FILES
+        "AntSimulatorPiecesConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/AntSimulatorPiecesConfigVersion.cmake"
+    DESTINATION lib/cmake/${PROJECT_NAME}
+)
 
 
 
@@ -59,7 +64,7 @@ PRIVATE
     mainwindow.h
     mainwindowform.ui
     resources.qrc
-    ant.h ant.cpp
+    antVisuals.h antVisuals.cpp
     colony.h colony.cpp
 ) 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
@@ -68,7 +73,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE)
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
     Qt6::Gui
-    #AntSimulatorPieces
+    AntSimulatorPieces
 )
 
 find_package(GTest REQUIRED)
@@ -82,7 +87,7 @@ target_link_libraries(AntSimulator_unittests
     PRIVATE
         ${GTEST_LIBRARIES}
         ${GTEST_MAIN_LIBRARIES}
-        #AntSimulatorPieces
+        AntSimulatorPieces
 )
 
 install(TARGETS ${PROJECT_NAME}

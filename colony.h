@@ -1,18 +1,23 @@
 #ifndef COLONY_H
 #define COLONY_H
 
+#include <QGraphicsPixmapItem>
+#include <QPixmap>
+
 class ant;
 
 class colony
 {
 public:
-    colony();
+    explicit colony();
+    ~colony();
 
 
-
+    QPixmap* mPixmap;
+    QGraphicsPixmapItem* mPixitem;
 
 private:
-    ant *mainAnt{nullptr};
+    ant *firstAnt{nullptr};
 
 };
 

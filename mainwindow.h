@@ -5,6 +5,7 @@
 #include <QtCore>
 #include <QGraphicsScene>
 #include <QPushButton>
+#include "antVisuals.h"
 
 namespace Ui {class MainWindowForm;}
 
@@ -17,8 +18,12 @@ public:
     ~MainWindow();
 
     void DrawScene();
+    void DrawColony();
+    void DrawAnt(antVisual& currentAnt);
 
     void ClearPoints();
+
+    QGraphicsScene* GiveScene();
 
 public slots:
     void actionExit_triggered();

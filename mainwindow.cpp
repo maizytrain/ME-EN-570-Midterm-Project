@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindowform.h"
 #include <QGraphicsTextItem>
+#include "antVisuals.h"
+#include "colony.h"
 //#include "piestimator.cpp"
 
 MainWindow::MainWindow(QWidget *parent) :QMainWindow{parent}, mMainWindowUI{new Ui::MainWindowForm}
@@ -17,7 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow{parent}, mMainWindowUI{new 
 
     mView->setScene(mScene);
     DrawScene();
-
+    //DrawAnt();
+    DrawColony();
 
 }
 
@@ -37,7 +40,8 @@ void MainWindow::actionExit_triggered()
 
 void MainWindow::DrawScene()
 {
-    QPixmap background(":/images/Ground_Dirt_007_basecolor.jpg");
+
+    QPixmap background(":/images/Ground_Dirt_007_basecolor_lighter.jpg");
     int xMaps{5};
     int yMaps{4};
 
@@ -52,12 +56,26 @@ void MainWindow::DrawScene()
         }
     }
 
+    mView->ensureVisible(0,0,1280,1024);
+
 }
 
 void MainWindow::ClearPoints()
 {
     mScene->clear();
     DrawScene();
+}
+
+void MainWindow::DrawColony()
+{
+    //colony mainColony;
+    //mScene->addItem(mainColony.mPixitem);
+
+}
+
+void MainWindow::DrawAnt(antVisual& currentAnt)
+{
+    currentAnt.mPixItem = mScene->addPixmap(*currentAnt.mPixmap);
 }
 
 double generate_random_double(double minValue, double maxValue)
