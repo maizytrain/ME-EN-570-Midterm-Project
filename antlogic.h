@@ -6,19 +6,25 @@ class antLogic
 {
 public:
     explicit antLogic();
+    antLogic(int number, antLogic* parent);
     ~antLogic();
 
     void SetPos(float x, float y);
     void SetRot(float r);
 
-    //float get_xPos();
-    //float get_yPos();
+    void Wander();
 
+    antLogic* get_parent_ant();
+    antLogic* get_child_ant();
 
 protected:
     float* mRot;
     float* mxPos;
     float* myPos;
+
+    antLogic* parentAnt{nullptr};
+    antLogic* childAnt{nullptr};
+    int antNumber;
 
 };
 

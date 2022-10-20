@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QPushButton>
 #include "antVisuals.h"
+#include "colonyVisuals.h"
 
 namespace Ui {class MainWindowForm;}
 
@@ -18,10 +19,12 @@ public:
     ~MainWindow();
 
     void DrawScene();
-    void DrawColony();
+    void DrawColony(colonyVisual& colony);
     void DrawAnt(antVisual& currentAnt);
 
     void ClearPoints();
+
+    void Update();
 
     QGraphicsScene* GiveScene();
 

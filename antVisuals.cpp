@@ -1,10 +1,9 @@
 #include "antVisuals.h"
-#include "qgraphicsscene.h"
 
 antVisual::antVisual()
 {
     QPixmap tempPixmap(":/images/antpic.png");
-    mPixmap = new QPixmap(tempPixmap.scaledToHeight(64));
+    mPixmap = new QPixmap(tempPixmap.scaledToHeight(30));
     mPixItem = new QGraphicsPixmapItem(*mPixmap);
 }
 

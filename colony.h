@@ -4,20 +4,17 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 
-class ant;
-
-class colony
+class colonyVisual
 {
 public:
-    explicit colony();
-    ~colony();
+    explicit colonyVisual();
+    ~colonyVisual();
 
 
     QPixmap* mPixmap;
     QGraphicsPixmapItem* mPixitem;
 
 private:
-    ant *firstAnt{nullptr};
 
 };
 

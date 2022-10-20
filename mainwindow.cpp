@@ -2,7 +2,7 @@
 #include "ui_mainwindowform.h"
 #include <QGraphicsTextItem>
 #include "antVisuals.h"
-#include "colony.h"
+#include "colonyVisuals.h"
 //#include "piestimator.cpp"
 
 MainWindow::MainWindow(QWidget *parent) :QMainWindow{parent}, mMainWindowUI{new Ui::MainWindowForm}
@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow{parent}, mMainWindowUI{new 
 
     mView->setScene(mScene);
     DrawScene();
-    //DrawAnt();
-    DrawColony();
 
 }
 
@@ -34,6 +32,10 @@ MainWindow::~MainWindow()
 void MainWindow::actionExit_triggered()
 {
     QApplication::quit();
+}
+
+void MainWindow::Update() {
+
 }
 
 
@@ -66,24 +68,14 @@ void MainWindow::ClearPoints()
     DrawScene();
 }
 
-void MainWindow::DrawColony()
+void MainWindow::DrawColony(colonyVisual& colony)
 {
-    //colony mainColony;
-    //mScene->addItem(mainColony.mPixitem);
-
+    colony.mPixitem = mScene->addPixmap(*colony.mPixmap);
 }
 
 void MainWindow::DrawAnt(antVisual& currentAnt)
 {
     currentAnt.mPixItem = mScene->addPixmap(*currentAnt.mPixmap);
-}
-
-double generate_random_double(double minValue, double maxValue)
-{
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(minValue, maxValue);
-    return dis(gen);
 }
 
 /*void MainWindow::released()

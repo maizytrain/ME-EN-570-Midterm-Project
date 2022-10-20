@@ -8,6 +8,8 @@ int main(int argc, char *argv[])
   MainWindow w;
   w.show();
 
+  colonyVisual TestColony;
+  w.DrawColony(TestColony);
   antVisual TestAnt;
   w.DrawAnt(TestAnt);
 

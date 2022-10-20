@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.1, 2022-10-19T15:21:54. -->
+<!-- Written by QtCreator 8.0.1, 2022-10-19T16:25:28. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -71,10 +71,10 @@
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAntClass_WhenCallingANewAnt_ExpectNoErrorsThrown">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAntClass_WhenCallingNewAnt_ExpectNonNullPointerPositions">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAntClass_WhenCallingNewAnt_ExpectNonNullPointerRotation">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAnt_WhenCallingWanderFunction_ExpectADifferentRotationThanBefore">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAnt_WhenSettingPositions_ExpectValuesToMatch">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAnt_WhenSettingRotationHigherThan360_ExpectValueToBeReducedToProperAngle">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenAnAnt_WhenSettingRotation_ExpectValueToMatch">Checked</value>
-    <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:GivenanAntWithRotation_WhenCallingForwardFunction_ExpectCorrectVectorBack">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/joshpeterson/Documents/ME-EN-570-Midterm-Project/AntSimulator_unittests.cpp:antTester">Checked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
@@ -110,7 +110,7 @@
 -DCMAKE_BUILD_TYPE:STRING=Debug
 -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{IDE:ResourcePath}/package-manager/auto-setup.cmake
 -DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX};C:\Users\joshpeterson\Documents\GTest;C:\Users\joshpeterson\Documents\vector3d-maizytrain
+-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX};C:\Users\joshpeterson\Documents\GTest
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>

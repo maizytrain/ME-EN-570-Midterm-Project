@@ -17,10 +17,12 @@ add_library(AntSimulatorPieces STATIC)
 target_sources(AntSimulatorPieces
     PRIVATE
     antlogic.cpp
+    colonylogic.cpp
     PUBLIC FILE_SET HEADERS
     BASE_DIRS ${PROJECT_SOURCE_DIR}
     FILES
     antlogic.h
+    colonylogic.h
 )
 target_compile_features(AntSimulatorPieces PUBLIC cxx_std_17)
 target_link_libraries(AntSimulatorPieces PRIVATE
@@ -65,7 +67,7 @@ PRIVATE
     mainwindowform.ui
     resources.qrc
     antVisuals.h antVisuals.cpp
-    colony.h colony.cpp
+    colonyVisuals.h colonyVisuals.cpp
 ) 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 target_include_directories(${PROJECT_NAME} PRIVATE)

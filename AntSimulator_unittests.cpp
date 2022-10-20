@@ -59,7 +59,25 @@ TEST_F(antTester, GivenAnAnt_WhenSettingRotationHigherThan360_ExpectValueToBeRed
     EXPECT_EQ(100, bob.get_mRot_value());
 }
 
-TEST_F(antTester, GivenanAntWithRotation_WhenCallingForwardFunction_ExpectCorrectVectorBack)
+TEST_F(antTester, GivenAnAnt_WhenCallingWanderFunction_ExpectADifferentRotationThanBefore)
+{
+    bob.SetRot(0);
+    float oldRot = bob.get_mRot_value();
+    bob.Wander();
+    EXPECT_NE(oldRot, bob.get_mRot_value());
+}
+
+TEST_F(antTester, GivenAnAnt_WhenCallingWanderFunction_ExpectADifferentLocationThanBefore)
+{
+    bob.SetPos(0,0);
+    float oldxPos = bob.get_mxPos_value();
+    float oldyPos = bob.get_myPos_value();
+    bob.Wander();
+    EXPECT_NE(oldxPos, bob.get_mxPos_value());
+    EXPECT_NE(oldyPos, bob.get_myPos_value());
+}
+
+/*TEST_F(antTester, GivenAnAntWithRotation_WhenCallingForwardFunction_ExpectCorrectVectorBack)
 {
 
-}
+}*/
